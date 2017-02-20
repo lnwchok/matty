@@ -8,23 +8,23 @@
 	<table class="table table-condensed table-hover">
 		<thead>
 			<tr>
-				<th>Category</th>
-				<th>Code</th>
-				<th>Size-1</th>
-				<th>Size-2</th>
-				<th>Description</th>
-				<th>Qty</th>
+				<th style='text-align: center'>GRP</th>
+				<th style='text-align: center'>CODE</th>
+				<th style='text-align: center'>SIZE-1</th>
+				<th style='text-align: center'>SIZE-2</th>
+				<th style='text-align: center'>DESCRIPTION</th>
+				<th style='text-align: center'>QT'Y</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach($bqs as $bq)
 			<tr>
-				<td>{{ $bq->bqcat }}</td>
+				<td style='text-align: center'>{{ $bq->bqcat }}</td>
 				<td>{{ $bq->bqcode }}</td>
-				<td>{{ $bq->size1 }}</td>
-				<td>{{ $bq->size2 }}</td>
+				<td style='text-align: center'>{{ $bq->size1 }}</td>
+				<td style='text-align: center'>{{ $bq->size2 }}</td>
 				<td>{{ $bq->descr }}</td>
-				<td>{{ $bq->qty }}</td>
+				<td style='text-align: right'>{{ $bq->qty }}</td>
 			</tr>
 			@endforeach
 		</tbody>

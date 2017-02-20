@@ -15,9 +15,12 @@ class BqreqsController extends Controller
 		
 		$pj = Info::first();
 
-		$bqreq = new Bqreq;
+/*		$bqreq = new Bqreq;
 		$bqs = $bqreq->show();
-		$count = $bqreq->count_rec();
+		$count = $bqreq->count_rec();*/
+
+		$bqs = Bqreq::all();
+		$count = Bqreq::count();
 
 	    return view('bqreqs.index', compact('title','pj','bqs','count'));
     }

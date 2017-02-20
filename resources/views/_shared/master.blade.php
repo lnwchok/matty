@@ -8,6 +8,8 @@
     <title>
     	@if(isset($pj))
     		{{ $pj->name }}
+        @else
+            MATTY
     	@endif    	
     &nbsp;::&nbsp; 
     	@if(isset($title))
