@@ -1,30 +1,30 @@
 <?php
 
 // use Excel;
+use App\Bqproc;
+use App\Info;
+
+
 
 Route::get('/', function () {
 
     return view('index');
 });
 
-Route::get('/bqreqs', 'BqreqsController@index');
+Route::get('bqreqs', 'BqreqsController@index');
 
-Route::get('/excels', function () {
+Route::get('bqprocs', 'BqprocsController@index');
 
-	$path = '/home/mps0229/Desktop/test.xls';
 
-	$data = Excel::load($path, function($reader) {
-		$sheet = $reader->sheet(0);
-		$result = $sheet->get(array('a1','b1'));
+Route::get('excels', 'ExcelsController@index');
+// Route::get('excels', ['as' => 'excels', 'uses' => 'ExcelsController@index']);
 
-	 })->get();
+Route::get('excels/import', 'ExcelsController@importExcel');
 
-	// $title = $data->getTitle();
+/*Route::get('excels', function () {
 
-	// $data->dd();
+	$path = '/home/sitthichok/Desktop/test.xls';
 
-	return var_dump($result);
-
-	// return view('test', compact('data'));
-});
-
+	$dat = Excel::selectSheets(0)->load($path)->get(array());
+	return view('test', compact('dat'));
+});*/

@@ -15,6 +15,12 @@ class CreateBqprocsTable extends Migration
     {
         Schema::create('bqprocs', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('pono', 20)->nullable();
+            $table->string('code',30)->nullable();
+            $table->string('size1',20)->nullable();
+            $table->string('size2',20)->nullable();
+            $table->text('descr')->nullable();
+            $table->float('qty')->default(0);            
             $table->timestamps();
         });
     }
