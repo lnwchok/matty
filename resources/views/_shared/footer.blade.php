@@ -1,5 +1,5 @@
 <footer>
-	
+	Copyright 2017 :: MPS Piping gang ::
 </footer>
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 
