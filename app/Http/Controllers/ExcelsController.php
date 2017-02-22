@@ -9,7 +9,8 @@ use DB;
 class ExcelsController extends Controller
 {
 
-	protected $path = '/home/sitthichok/Desktop/test.xls';
+	// protected $path = '/home/mps0229/Desktop/test.xls';
+	protected $path = '/media/sf_My_Share/w1/test.xls';
 
 	public function index()
 	{
