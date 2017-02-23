@@ -17,11 +17,23 @@
     	@endif
     </title>
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+
+    <style type="text/css">
+        body {
+            font: 400 15px Lato, sans-serif;
+            line-height: 1.8;
+        }
+        th {
+            text-align: center;
+        }
+    </style>
 
 </head>
 <body>
 
-    <div class="container">
+    <div class="container-fluid">
         @yield('content')
     </div>
  

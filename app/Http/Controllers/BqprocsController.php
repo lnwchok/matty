@@ -12,6 +12,8 @@ use Redirect;
 class BqprocsController extends Controller
 {
     public function index() {
+    	$title = 'MPO';
+
 		$pj = Info::first();
 
 		$bqs = Bqproc::all();
