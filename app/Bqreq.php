@@ -27,5 +27,15 @@ class Bqreq extends Model
     }
 */
 
+    public function getSum() {
+        return Bqreq::selectRaw('sum(qty) as val')->pluck('val')->first();
+    }
 
+    public function getSumbyCat() {
+        return Bqreq::selectRaw('bqcats.code as code,sum(bqreqs.qty) as qty')
+            ->groupby('bqcats.code')
+            ->leftjoin('bqcats','bqreqs.bqcat','=','bqcats.id')
+            ->get()
+            ->toArray();
+    }
 }

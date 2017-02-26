@@ -1,9 +1,8 @@
 @extends('_shared.master')
 
 @section('content')
-	<h1>{{ $pj->name }}</h1>
-	<p>{{ $pj->descr }}</p>
 	<h2>Material Take-Off</h2>
+	
 	<p style="text-align: right">Total : {{ $count }} record(s)</p>
 	<table class="table table-condensed table-hover">
 		<thead>

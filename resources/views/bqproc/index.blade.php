@@ -1,19 +1,16 @@
 @extends('_shared.master')
 
 @section('content')
-	<h1>{{ $pj->name }}</h1>
-	<p>{{ $pj->descr }}</p>
+	<h2>Material Procurement</h2>
 
-	<div class="row">
-		<div class="col-md-8">
-			<p><h3>Material Procurement</h3></p>			
+	<div class="row text-right">
+		<div class="col-md-9">
+			<p><a href="{{ url('/bqprocs/import') }}" class="btn btn-danger" role="button">UPDATE</a></p>			
 		</div>
-		<div class="col-md-4" style="text-align: right">
-			<p><a href="{{ url('/bqprocs/import') }}" class="btn btn-danger" role="button">UPDATE</a></p>
-			<p style="text-align: right">Total : {{ $count }} record(s)</p>
+		<div class="col-md-3">
+			<p style="padding-right: 5px">Total : {{ $count }} record(s)</p>
 		</div>
 	</div>
-
 
 	<table class="table table-condensed table-hover">
 		<thead>

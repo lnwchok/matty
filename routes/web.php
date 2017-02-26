@@ -1,9 +1,7 @@
 <?php
 
 // Home
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'IndexsController@index');
 
 
 // Section >> BQ Required
@@ -16,7 +14,10 @@ Route::get('bqprocs', 'BqprocsController@index');
 Route::get('bqprocs/import', 'BqprocsController@importExcel');
 
 // Section >> Matl Balance
-Route::get('balance', 'BqbalsController@index');
+Route::get('balance', 'BqbalsController@index')->name('balance');
+Route::get('balance/shortage', 'BqbalsController@shortageItem');
+Route::get('balance/over', 'BqbalsController@overItem');
+
 
 
 Route::get('excels', 'ExcelsController@index');
