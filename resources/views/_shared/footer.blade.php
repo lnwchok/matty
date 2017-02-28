@@ -1,7 +1,7 @@
-<footer class="container-fluid text-center">
-	Copyright 2017 :: MPS Piping Gang :: <a href="http://www.mitrproject.co.th">www.mitrproject.co.th</a>
+<footer class="container text-center well">
+	<p>&copy;2017 MPS Piping Gang</p>
+	<a href="http://www.mitrproject.co.th">www.mitrproject.co.th</a>
 </footer>
-
 
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 

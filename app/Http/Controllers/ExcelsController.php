@@ -18,7 +18,7 @@ class ExcelsController extends Controller
 	 *
 	 * Add in .env file to enable this class
 	 *
-	 *	PO_LINK=home/sitthichok/Desktop
+	 *	PO_LINK=/home/sitthichok/Desktop
 	 *	PO_XLS_FILE=test
 	 *
 	 ***/

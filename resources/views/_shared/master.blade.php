@@ -12,47 +12,34 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 
     <style type="text/css">
-        body {
-            font: 400 14px sans-serif;
-            line-height: 1.6;
+        footer {
+            color: #555;
+            border-top: 2px solid #ddd;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        a.list-group-item {
+            border-radius: 6px;
+            display: inline-block;
+            padding: 3px 15px;
         }
         th {
             text-align: center;
-        }
-        /* Remove the navbar's default margin-bottom and rounded borders */ 
-        .navbar {
-          margin-bottom: 0;
-          border-radius: 0;
-        }
-        
-        /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-        .row.content {height: 800px}
-        
-        /* Set gray background color and 100% height */
-        .sidenav {
-          background-color: #f1f1f1;
-          height: 100%;
-        }
-        
-        .list-unstyled {
-            margin-left: 15px;
+            font-size: larger;
         }
 
-        /* Set black background color, white text and some padding */
-        footer {
-          background-color: #555;
-          color: white;
-          padding: 15px;
+/*        .td {
+            padding-left: 30px;
+            padding-right: 30px;
         }
-        
-        /* On small screens, set height to 'auto' for sidenav and grid */
-        @media screen and (max-width: 767px) {
-          .sidenav {
-            height: auto;
-            padding: 15px;
-          }
-          .row.content {height: auto;} 
+        .table .td1 { width: 100px; }
+        .table .td2 { 
+            width: 100px; 
+            padding-right: 20px;
         }
+        .table .td3 { width: 120px; }*/
+
+
     </style>
 
 </head>
@@ -60,20 +47,19 @@
 
 @include('_shared.nav')
 
-<div class="container-fluid">
-    <div class="row content">
-        <div class="col-sm-2 sidenav">
-            @include('_shared.sb_cat')
-            @include('_shared.sb_customize')
-        </div>
+    <div class="container">
+        @if(isset($title))
+            <div class="page-header">
+                <h2>{{ $title }}</h2>
+            </div>
+        @endif
 
-        <div class="col-sm-10">
-            @yield('content')
-        </div>  
+        @include('_shared.sb_customize')
+        
+        @yield('content')
+
     </div>
-</div>
 
- 
     @include('_shared.footer')
 
 </body>

@@ -1,29 +1,26 @@
 @extends('_shared.master')
 
 @section('content')
-	<h2>Material Take-Off</h2>
-	
-	<p style="text-align: right">Total : {{ $count }} record(s)</p>
+
+	<p class="text-right">Total : {{ $count }} record(s)</p>
 	<table class="table table-condensed table-hover">
 		<thead>
 			<tr>
-				<th style='text-align: center'>GRP</th>
-				<th style='text-align: center'>CODE</th>
-				<th style='text-align: center'>SIZE-1</th>
-				<th style='text-align: center'>SIZE-2</th>
-				<th style='text-align: center'>DESCRIPTION</th>
-				<th style='text-align: center'>QT'Y</th>
+				<th>CODE</th>
+				<th>SIZE-1</th>
+				<th>SIZE-2</th>
+				<th>DESCRIPTION</th>
+				<th>QTY</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach($bqs as $bq)
 			<tr>
-				<td style='text-align: center'>{{ $bq->bqcat }}</td>
 				<td>{{ $bq->bqcode }}</td>
-				<td style='text-align: center'>{{ $bq->size1 }}</td>
-				<td style='text-align: center'>{{ $bq->size2 }}</td>
+				<td class="text-center">{{ $bq->size1 }}</td>
+				<td class="text-center">{{ $bq->size2 }}</td>
 				<td>{{ $bq->descr }}</td>
-				<td style='text-align: right'>{{ $bq->qty }}</td>
+				<td class="text-right">{{ $bq->qty }}</td>
 			</tr>
 			@endforeach
 		</tbody>

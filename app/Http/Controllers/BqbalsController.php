@@ -16,34 +16,36 @@ class BqbalsController extends Controller
 			array('name' => 'OverItem','link' => '/balance/over')
 			);
 			 
+	protected $page_title = "Material Status";
+
 	public function index() {
-    	$title = 'MBL';
+    	$title = $this->page_title;
     	$custs = $this->balcust;
 		$pj = Info::first();
 
 		$bqs = Matbal::showAll();
 
-		return view('bqbal.index', compact('pj', 'bqs', 'custs'));  
+		return view('bqbal.index', compact('pj', 'bqs', 'custs', 'title'));  
 	}
 
 	public function shortageItem() {
-    	$title = 'MBL';
+    	$title = $this->page_title;
     	$custs = $this->balcust;
 		$pj = Info::first();
 
 		$bqs = Matbal::showShortageItem();
 
-		return view('bqbal.index', compact('pj', 'bqs', 'custs'));  
+		return view('bqbal.index', compact('pj', 'bqs', 'custs', 'title'));  
 	}
 
 	public function overItem() {
-    	$title = 'MBL';
+    	$title = $this->page_title;
     	$custs = $this->balcust;
 		$pj = Info::first();
 
 		$bqs = Matbal::showOverItem();
 
-		return view('bqbal.index', compact('pj', 'bqs', 'custs'));  
+		return view('bqbal.index', compact('pj', 'bqs', 'custs', 'title'));  
 	}
 
 }

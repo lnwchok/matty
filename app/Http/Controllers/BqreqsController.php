@@ -8,17 +8,14 @@ use App\Info;
 
 class BqreqsController extends Controller
 {
-	
+
+	protected $page_title = "Material Required";
+
     public function index() 
     {
-		$title = 'MTO';
+    	$title = $this->page_title;
 		
 		$pj = Info::first();
-
-/*		$bqreq = new Bqreq;
-		$bqs = $bqreq->show();
-		$count = $bqreq->count_rec();*/
-
 		$bqs = Bqreq::all();
 		$count = Bqreq::count();
 

@@ -11,15 +11,18 @@ use Redirect;
 
 class BqprocsController extends Controller
 {
+
+	protected $page_title = "Material Procurement";
+	
     public function index() {
-    	$title = 'MPO';
+    	$title = $this->page_title;
 
 		$pj = Info::first();
 
 		$bqs = Bqproc::all();
 		$count = Bqproc::count();
 
-		return view('bqproc.index', compact('bqs','pj','count'));    	
+		return view('bqproc.index', compact('bqs','pj','count', 'title'));    	
     }
 
     public function importExcel()
