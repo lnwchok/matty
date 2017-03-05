@@ -1,11 +1,11 @@
-<div>
-    <h4>Category</h4>
-    <ol class="list-unstyled">
-        <li><a href="#section1">Pipe<a></li>
-        <li><a href="#section2">Fitting</a></li>
-        <li><a href="#section3">Flange</a></li>
-        <li><a href="#section3">Gasket</a></li>
-        <li><a href="#section3">BoltNut</a></li>
-        <li><a href="#">Valve</a></li>
-    <ol>                
-</div>
+@if(isset($filters))
+	<div>
+	    <h4>Filter</h4>   
+		<div class="list-group">
+	    	@foreach($filters as $f)
+	    		<a href="?filter={{ $f['descr'] }}" class="list-group-item">{{ $f['descr'] }}</a>
+	    	@endforeach
+	    	<a href="{{ url()->current() }}" class="list-group-item">Clear</a>
+	    </div>     
+	</div>
+@endif

@@ -20,7 +20,7 @@
 				<td class="text-center">{{ $bq->size1 }}</td>
 				<td class="text-center">{{ $bq->size2 }}</td>
 				<td>{{ $bq->descr }}</td>
-				<td class="text-right">{{ $bq->qty }}</td>
+				<td class="text-right">{{ number_format($bq->qty, 0, '.', ',') }}</td>
 			</tr>
 			@endforeach
 		</tbody>

@@ -55,6 +55,7 @@
         @endif
 
         @include('_shared.sb_customize')
+        @include('_shared.sb_cat')
         
         @yield('content')
 

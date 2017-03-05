@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Info;
+use App\Bqreq;
+use App\Bqcat;
 use App\Brain\Matbal;
 
 class BqbalsController extends Controller
@@ -18,34 +20,37 @@ class BqbalsController extends Controller
 			 
 	protected $page_title = "Material Status";
 
-	public function index() {
+	public function index(Request $request) {
     	$title = $this->page_title;
     	$custs = $this->balcust;
 		$pj = Info::first();
+		$filter = Bqcat::where('descr',$request->input('filter'))->pluck('id')->toArray();
+		$bqs = Matbal::showAll(!empty($filter) ? $filter[0] : null);
+		$filters = (new Matbal)->getCats();
 
-		$bqs = Matbal::showAll();
-
-		return view('bqbal.index', compact('pj', 'bqs', 'custs', 'title'));  
+		return view('bqbal.index', compact('pj', 'bqs', 'custs', 'title', 'filters'));  
 	}
 
-	public function shortageItem() {
+	public function shortageItem(Request $request) {
     	$title = $this->page_title;
     	$custs = $this->balcust;
 		$pj = Info::first();
+		$filter = Bqcat::where('descr',$request->input('filter'))->pluck('id')->toArray();
+		$bqs = Matbal::showShortageItem(!empty($filter) ? $filter[0] : null);
+		$filters = (new Matbal)->getCats();
 
-		$bqs = Matbal::showShortageItem();
-
-		return view('bqbal.index', compact('pj', 'bqs', 'custs', 'title'));  
+		return view('bqbal.index', compact('pj', 'bqs', 'custs', 'title', 'filters'));  
 	}
 
-	public function overItem() {
+	public function overItem(Request $request) {
     	$title = $this->page_title;
     	$custs = $this->balcust;
 		$pj = Info::first();
+		$filter = Bqcat::where('descr',$request->input('filter'))->pluck('id')->toArray();
+		$bqs = Matbal::showOverItem(!empty($filter) ? $filter[0] : null);
+		$filters = (new Matbal)->getCats();
 
-		$bqs = Matbal::showOverItem();
-
-		return view('bqbal.index', compact('pj', 'bqs', 'custs', 'title'));  
+		return view('bqbal.index', compact('pj', 'bqs', 'custs', 'title', 'filters'));  
 	}
 
 }

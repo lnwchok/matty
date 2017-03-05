@@ -1,7 +1,6 @@
 @extends('_shared.master')
 
 @section('content')
-
 	<table class="table table-condensed table-hover">
 		<thead>
 			<tr>
@@ -21,9 +20,9 @@
 				<td class="text-center">{{ $bq->size1 }}</td>
 				<td class="text-center">{{ $bq->size2 }}</td>
 				<td>{{ $bq->descr }}</td>
-				<td class="text-right">{{ $bq->req_qty }}</td>
-				<td class="text-right">{{ $bq->po_qty }}</td>
-				<td class="text-right">{{ $bq->diff }}</td>
+				<td class="text-right">{{ number_format($bq->req_qty, 0, '.', ',') }}</td>
+				<td class="text-right">{{ number_format($bq->po_qty, 0, '.', ',') }}</td>
+				<td class="text-right">{{ number_format($bq->diff, 0, '.', ',') }}</td>
 			</tr>
 			@endforeach
 		</tbody>
