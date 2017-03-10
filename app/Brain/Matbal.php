@@ -3,6 +3,7 @@
 namespace App\Brain;
 
 use App\Bqreq;
+use App\Matcode;
 use DB;
 
 class Matbal
@@ -12,11 +13,27 @@ class Matbal
 	}
 
 	public static function showShortageItem($cat = null) {
-    	return empty($cat) ? static::calc()->where(DB::raw('COALESCE(bqreqs.qty,0)-COALESCE(bqprocs.qty,0)'),'>',0)->get() : static::calc()->where(DB::raw('COALESCE(bqreqs.qty,0)-COALESCE(bqprocs.qty,0)'),'>',0)->get()->where('bqcat', $cat);		
+    	return empty($cat) ? 
+    		static::calc()
+    		->where(DB::raw('COALESCE(bqreqs.qty,0)-COALESCE(bqprocs.qty,0)'),'>',0)
+    		->get() 
+    		: 
+    		static::calc()
+    		->where(DB::raw('COALESCE(bqreqs.qty,0)-COALESCE(bqprocs.qty,0)'),'>',0)
+    		->get()
+    		->where('bqcat', $cat);		
 	}
 
 	public static function showOverItem($cat = null) {
-    	return empty($cat) ? static::calc()->where(DB::raw('COALESCE(bqreqs.qty,0)-COALESCE(bqprocs.qty,0)'),'<',0)->get() : static::calc()->where(DB::raw('COALESCE(bqreqs.qty,0)-COALESCE(bqprocs.qty,0)'),'<',0)->get()->where('bqcat', $cat);
+    	return empty($cat) ? 
+    		static::calc()
+    		->where(DB::raw('COALESCE(bqreqs.qty,0)-COALESCE(bqprocs.qty,0)'),'<',0)
+    		->get() 
+    		: 
+    		static::calc()
+    		->where(DB::raw('COALESCE(bqreqs.qty,0)-COALESCE(bqprocs.qty,0)'),'<',0)
+    		->get()
+    		->where('bqcat', $cat);
 	}
 
 	public function getCats() {
@@ -40,8 +57,16 @@ class Matbal
 				DB::raw('COALESCE(bqprocs.qty,0) as po_qty'),
 				DB::raw('COALESCE(bqreqs.qty,0)-COALESCE(bqprocs.qty,0) as diff')
 				)
-      		->orderBy('bqreqs.bqcats_id')
-      		;
+      		->orderBy('bqreqs.bqcats_id');
+	}
+
+	public static function findMatCode() {
+
+		return Matcode::rightjoin('bqreqs','matcodes.code','=','bqreqs.bqcode')
+			->select('bqreqs.bqcode')
+			->where('matcodes.code')
+			->get();
+
 	}
 
 }
